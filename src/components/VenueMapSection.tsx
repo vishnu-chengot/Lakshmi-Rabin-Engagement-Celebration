@@ -35,7 +35,7 @@ export const VenueMapSection: React.FC = () => {
             </span>
           </div>
           <p className="font-display text-lg font-normal text-[#3D2923]">
-            Muhurtham: 10:30 AM – 11:30 AM
+            Muhurtham: 10:00 AM – 10:30 AM
           </p>
           <p className="font-display italic text-xs text-[#667052] mt-1">
             Followed by traditional celebratory feast

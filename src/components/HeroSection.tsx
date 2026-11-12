@@ -77,7 +77,7 @@ export const HeroSection: React.FC = () => {
         <div className="w-20 h-px bg-[#B89452]/40 mx-auto my-3" />
 
         <p className="font-sans text-xs sm:text-[13px] font-light tracking-[0.1em] text-[#3D2923]/85">
-          Auspicious Muhurtham: 10:30 AM – 11:30 AM
+          Auspicious Muhurtham: 10:00 AM – 10:30 AM
         </p>
         <p className="font-display text-xs italic text-[#667052] mt-1.5">
           Followed by traditional celebratory feast
