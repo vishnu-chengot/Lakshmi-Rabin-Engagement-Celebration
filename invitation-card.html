@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rabin &amp; Lakshmi — Engagement Invitation</title>
+
+  <!-- Open Graph Meta Tags for WhatsApp & Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rabin &amp; Lakshmi — Engagement Invitation">
+  <meta property="og:description" content="With the blessings of our families, joyfully invite you to celebrate our engagement ceremony on 15 November 2026 at East Avenue Hotel, Kozhikode.">
+  <meta property="og:image" content="couple.jpg">
+
+  <!-- Google Fonts: Cormorant Garamond & Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       3D Royal Envelope Opening Experience (Starts on Page Load)
+       ====================================================================== -->
+  <div id="envelopeOverlay" class="envelope-overlay" aria-label="Interactive Envelope">
+    <div class="envelope-scene">
+      
+      <!-- Table botanical accents -->
+      <div class="env-botanical env-botanical--left" aria-hidden="true">
+        <svg viewBox="0 0 108 160" fill="none"><g stroke="#667052" stroke-width="1" stroke-linecap="round"><path d="M14 156C22 118 34 76 58 44 72 25 86 14 100 8"/><path d="M30 116c-8-8-9-19-4-27 8 4 12 14 9 24"/><path d="M38 98c10-2 17-10 17-19-10-1-18 5-20 15"/><path d="M48 76c-9-6-12-16-9-25 8 5 12 15 11 24"/><path d="M58 58c11-1 19-8 20-17-10-2-19 3-22 13"/></g></svg>
+      </div>
+      <div class="env-botanical env-botanical--right" aria-hidden="true">
+        <svg viewBox="0 0 108 160" fill="none"><g stroke="#667052" stroke-width="1" stroke-linecap="round"><path d="M14 156C22 118 34 76 58 44 72 25 86 14 100 8"/><path d="M30 116c-8-8-9-19-4-27 8 4 12 14 9 24"/><path d="M38 98c10-2 17-10 17-19-10-1-18 5-20 15"/><path d="M48 76c-9-6-12-16-9-25 8 5 12 15 11 24"/><path d="M58 58c11-1 19-8 20-17-10-2-19 3-22 13"/></g></svg>
+      </div>
+
+      <!-- The 3D Envelope Object -->
+      <div class="envelope-shell" id="envelopeShell" role="button" tabindex="0" aria-label="Tap to open invitation">
+        
+        <!-- Table Drop Shadow -->
+        <div class="env-table-shadow"></div>
+
+        <!-- 1. Back panel -->
+        <div class="env-back-panel"></div>
+
+        <!-- 2. Sliding Card Preview -->
+        <div class="env-card-preview" id="envCardPreview">
+          <div class="preview-inner">
+            <svg class="preview-lotus" viewBox="0 0 120 72" fill="none">
+              <g stroke="#B89452" stroke-width="1" stroke-linecap="round">
+                <path d="M60 66C46 66 28 60 16 48c14-6 28-5 38 2" />
+                <path d="M60 66c14 0 32-6 44-18-14-6-28-5-38 2" />
+                <path d="M60 65c-5-7-6-17-2-25 3-6 3-6 2-9-1 3-1 3 2 9 4 8 3 18-2 25Z" />
+              </g>
+            </svg>
+            <p class="preview-blessing">With the blessings of our families</p>
+            <h2 class="preview-names">Rabin &amp; Lakshmi</h2>
+            <p class="preview-date">15 · 11 · 2026</p>
+          </div>
+        </div>
+
+        <!-- 3. Front panel -->
+        <div class="env-front-panel">
+          <div class="env-front-crease"></div>
+          <div class="env-front-label">
+            <span class="env-front-rule"></span>
+            <p class="env-front-names">Rabin &amp; Lakshmi</p>
+            <span class="env-front-rule"></span>
+          </div>
+        </div>
+
+        <!-- 4. Top Flap with 3D hinge -->
+        <div class="env-flap-hinge" id="envFlap">
+          <div class="env-flap-face env-flap-outside">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="flap-lines">
+              <path d="M0 0 L50 100 L100 0" fill="none" stroke="rgba(112,72,38,0.4)" stroke-width="1" />
+              <path d="M1.2 0 L50 97.5 L98.8 0" fill="none" stroke="rgba(255,252,244,0.9)" stroke-width="1" />
+            </svg>
+          </div>
+          <div class="env-flap-face env-flap-inside"></div>
+        </div>
+
+        <!-- 5. Burgundy Wax Seal -->
+        <div class="env-wax-seal" id="envWaxSeal">
+          <div class="wax-blob">
+            <svg class="wax-seal-motif" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="33" stroke="#EBB9A6" stroke-width="1.2" opacity="0.6" />
+              <circle cx="50" cy="50" r="4" fill="#EBB9A6" />
+              <path d="M50 24 C45 35 45 42 50 50 C55 42 55 35 50 24 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M50 76 C45 65 45 58 50 50 C55 58 55 65 50 76 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M24 50 C35 45 42 45 50 50 C42 55 35 55 24 50 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M76 50 C65 45 58 45 50 50 C58 55 65 55 76 50 Z" fill="#EBB9A6" opacity="0.8" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tap to Open Prompt -->
+      <button type="button" class="tap-open-btn" id="tapOpenBtn">
+        Tap to open invitation
+      </button>
+
+    </div>
+  </div>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       Main Invitation Stationery Card
+       ====================================================================== -->
+  <div class="page-wrapper" id="mainCardWrapper">
+    <main class="invitation-card">
+
+      <!-- Faint Paper Grain Overlay -->
+      <svg class="paper-grain-overlay" aria-hidden="true" focusable="false">
+        <filter id="card-paper-noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0 0.25  0 0 0 0.04 0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#card-paper-noise)" />
+      </svg>
+
+      <!-- Multi-Layered Royal Gold & Blush Borders -->
+      <div class="card-border-outer" aria-hidden="true"></div>
+      <div class="card-border-gold" aria-hidden="true"></div>
+      <div class="card-border-soft" aria-hidden="true"></div>
+
+      <!-- Organic Corner Ambient Blush Shapes -->
+      <div class="organic-blush organic-blush--top-left" aria-hidden="true"></div>
+      <div class="organic-blush organic-blush--bottom-right" aria-hidden="true"></div>
+
+      <!-- Fine Botanical Line-Art Florals -->
+      <svg class="botanical-corner botanical-corner--top-left" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+        <g stroke="var(--rose)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+          <path d="M 8,14 Q 38,42 64,82 T 98,148" />
+          <path d="M 8,14 Q 24,11 34,6" />
+          <path d="M 24,32 Q 50,23 84,28" />
+          <path d="M 42,26 C 39,16 49,8 59,14 C 56,23 46,27 42,26 Z" />
+          <path d="M 62,25 C 66,13 78,11 82,19 C 76,28 66,29 62,25 Z" />
+        </g>
+      </svg>
+
+      <svg class="botanical-corner botanical-corner--bottom-right" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+        <g stroke="var(--rose)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+          <path d="M 8,14 Q 38,42 64,82 T 98,148" />
+          <path d="M 8,14 Q 24,11 34,6" />
+          <path d="M 24,32 Q 50,23 84,28" />
+          <path d="M 42,26 C 39,16 49,8 59,14 C 56,23 46,27 42,26 Z" />
+          <path d="M 62,25 C 66,13 78,11 82,19 C 76,28 66,29 62,25 Z" />
+        </g>
+      </svg>
+
+      <!-- Invitation Card Content Hierarchy -->
+      <div class="card-content">
+
+        <!-- Lotus Motif Header -->
+        <div class="lotus-motif" aria-hidden="true">
+          <svg viewBox="0 0 120 72" fill="none" class="lotus-svg">
+            <g stroke="var(--gold)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M60 66C46 66 28 60 16 48c14-6 28-5 38 2" />
+              <path d="M60 66c14 0 32-6 44-18-14-6-28-5-38 2" />
+              <path d="M60 66c-12-2-25-11-30-24 11 0 21 5 27 13" />
+              <path d="M60 66c12-2 25-11 30-24-11 0-21 5-27 13" />
+              <path d="M60 65c-5-7-6-17-2-25 3-6 3-6 2-9-1 3-1 3 2 9 4 8 3 18-2 25Z" />
+              <path d="M18 68h84" stroke="var(--gold)" stroke-width="0.6" opacity="0.5" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Introductory Blessing Line -->
+        <p class="blessing-intro">With the blessings of our families</p>
+
+        <!-- Ceremony Header Badge -->
+        <div class="invite-header-badge">
+          <span class="badge-line"></span>
+          <p class="invite-header">ENGAGEMENT CEREMONY</p>
+          <span class="badge-line"></span>
+        </div>
+
+        <!-- Couple Names — Exact Match to Reference Typography & Line Spacing -->
+        <div class="couple-names-wrapper">
+          <h1 class="couple-name">Rabin R</h1>
+          <div class="name-connector">
+            <svg class="connector-lotus" viewBox="0 0 120 72" fill="none">
+              <g stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round">
+                <path d="M60 66C46 66 28 60 16 48c14-6 28-5 38 2" />
+                <path d="M60 66c14 0 32-6 44-18-14-6-28-5-38 2" />
+                <path d="M60 65c-5-7-6-17-2-25 3-6 3-6 2-9-1 3-1 3 2 9 4 8 3 18-2 25Z" />
+              </g>
+            </svg>
+            <span class="connector-with">with</span>
+          </div>
+          <h1 class="couple-name">Lakshmi C P</h1>
+        </div>
+
+        <!-- Parent / Family Invitation Text -->
+        <p class="family-invitation-sub">
+          Cordially invite you to share in the joy and blessings of our engagement celebration
+        </p>
+
+        <!-- Couple Portrait in Jewelry Bezel Frame -->
+        <div class="photo-frame-wrapper">
+          <div class="photo-frame">
+            <img src="./couple.jpg" alt="Rabin R and Lakshmi C P" class="couple-photo">
+          </div>
+        </div>
+
+        <!-- Gold Divider -->
+        <div class="gold-divider" role="separator" aria-hidden="true">
+          <span class="divider-diamond">◆</span>
+        </div>
+
+        <!-- Event Date & Timing Capsule -->
+        <div class="event-capsule">
+          <p class="capsule-subtag">SAVE THE DATE</p>
+          <time class="event-date" datetime="2026-11-15">Sunday, 15 November 2026</time>
+          <div class="capsule-divider"></div>
+          <p class="event-time">Auspicious Muhurtham: 10:00 AM – 11:30 AM</p>
+          <p class="event-feast">Followed by traditional celebratory feast</p>
+        </div>
+
+        <!-- Live Countdown Timer (Roboto) -->
+        <div class="countdown-section" id="countdownSection">
+          <p class="countdown-label">COUNTING DOWN THE MOMENTS</p>
+          <div class="countdown-grid">
+            <div class="countdown-card">
+              <span class="countdown-val" id="daysVal">--</span>
+              <span class="countdown-unit">DAYS</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-val" id="hoursVal">--</span>
+              <span class="countdown-unit">HOURS</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-val" id="minsVal">--</span>
+              <span class="countdown-unit">MINS</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-val" id="secsVal">--</span>
+              <span class="countdown-unit">SECS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Section -->
+        <div class="venue-container">
+          <p class="venue-label">VENUE</p>
+          <p class="venue-name">East Avenue Hotel</p>
+          <p class="venue-location">East Nadakkavu, Wayanad Road, Kozhikode, Kerala</p>
+        </div>
+
+        <!-- Interactive Quick Action Buttons -->
+        <div class="action-buttons-group">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Engagement+Ceremony+%E2%80%94+Rabin+%26+Lakshmi&dates=20261115T043000Z/20261115T080000Z&details=With+the+blessings+of+our+families%2C+joyfully+invite+you+to+celebrate+the+engagement+ceremony+of+Rabin+R+%26+Lakshmi+C+P.&location=East+Avenue+Hotel%2C+East+Nadakkavu%2C+Wayanad+Road%2C+Kozhikode%2C+Kerala+673006"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Add to Calendar
+          </a>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=East+Avenue+Hotel+East+Nadakkavu+Kozhikode+Kerala"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Get Directions
+          </a>
+        </div>
+
+        <!-- Closing Line & Botanical Flourish -->
+        <p class="closing-message">&ldquo;Your presence, blessings, and warm wishes will make our celebration truly special.&rdquo;</p>
+
+        <div class="footer-blessing">
+          <span class="footer-flourish">❧ ✦ ❧</span>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Interactive Scripts (Envelope Opening + Live Countdown) -->
+  <script>
+    (function () {
+      var overlay = document.getElementById('envelopeOverlay');
+      var shell = document.getElementById('envelopeShell');
+      var flap = document.getElementById('envFlap');
+      var seal = document.getElementById('envWaxSeal');
+      var card = document.getElementById('envCardPreview');
+      var tapBtn = document.getElementById('tapOpenBtn');
+      var mainCard = document.getElementById('mainCardWrapper');
+
+      var opened = false;
+
+      function openEnvelope() {
+        if (opened) return;
+        opened = true;
+
+        if (tapBtn) tapBtn.style.opacity = '0';
+
+        // Step 1: Seal cracks and falls away
+        seal.classList.add('seal-breaking');
+
+        // Step 2: Flap rotates back
+        setTimeout(function() {
+          flap.classList.add('flap-open');
+        }, 350);
+
+        // Step 3: Card slides up
+        setTimeout(function() {
+          card.classList.add('card-sliding');
+        }, 900);
+
+        // Step 4: Full transition to invitation card
+        setTimeout(function() {
+          overlay.classList.add('overlay-depart');
+          mainCard.classList.add('card-revealed');
+          document.body.style.overflow = '';
+        }, 2200);
+
+        setTimeout(function() {
+          overlay.style.display = 'none';
+        }, 3100);
+      }
+
+      if (shell) shell.addEventListener('click', openEnvelope);
+      if (tapBtn) tapBtn.addEventListener('click', openEnvelope);
+
+      // Countdown timer
+      var targetDate = new Date('2026-11-15T10:00:00+05:30').getTime();
+      var daysEl = document.getElementById('daysVal');
+      var hoursEl = document.getElementById('hoursVal');
+      var minsEl = document.getElementById('minsVal');
+      var secsEl = document.getElementById('secsVal');
+
+      function updateCountdown() {
+        var now = new Date().getTime();
+        var distance = targetDate - now;
+
+        if (distance <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minsEl.textContent = '00';
+          secsEl.textContent = '00';
+          return;
+        }
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minsEl.textContent = String(minutes).padStart(2, '0');
+        secsEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+
+</body>
+</html>

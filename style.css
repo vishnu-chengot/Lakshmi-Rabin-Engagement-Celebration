@@ -1,0 +1,915 @@
+/* ==========================================================================
+   Luxury Engagement Stationery & E-Invitation — Rabin & Lakshmi
+   Theme: Royal Botanical, Cormorant Garamond & Wax-Sealed 3D Envelope
+   Typography: Cormorant Garamond paired with Roboto
+   ========================================================================== */
+
+:root {
+  --bg-primary: #F8F1E3;
+  --bg-secondary: #F2E8D5;
+  --paper: #FDFBF7;
+  --paper-cream: #FDF9F0;
+  
+  --burgundy: #702C35;
+  --burgundy-deep: #55202A;
+  --rose: #8a4e3d;
+  --rose-dark: #643123;
+  --rose-soft: #c29587;
+  
+  --gold: #B89452;
+  --gold-light: #D8BE86;
+  --gold-dark: #8F6E37;
+  --gold-gradient: linear-gradient(135deg, #c5a059 0%, #fae8c8 42%, #b89452 75%, #dfc18b 100%);
+  
+  --ink: #3D2923;
+  --ink-muted: #7d5b4e;
+  --ink-light: #9a786c;
+  --soft: #ebd0c1;
+
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  
+  --radius-card: 24px;
+  --radius-capsule: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Smooth Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(112% 78% at 50% 16%, #FBF6EC 0%, #F3E9D7 42%, #E6D6BB 78%, #D8C4A4 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 40px);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   3D Envelope Opening Overlay Experience
+   -------------------------------------------------------------------------- */
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(112% 78% at 50% 16%, #FBF6EC 0%, #F3E9D7 42%, #E6D6BB 78%, #D8C4A4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
+}
+
+.envelope-overlay.overlay-depart {
+  opacity: 0;
+  transform: scale(1.65);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.envelope-scene {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botanical Accents on Table */
+.env-botanical {
+  position: absolute;
+  width: 160px;
+  height: 240px;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.env-botanical svg {
+  width: 100%;
+  height: 100%;
+}
+
+.env-botanical--left {
+  left: -90px;
+  bottom: -40px;
+}
+
+.env-botanical--right {
+  right: -90px;
+  top: -40px;
+  transform: scaleX(-1);
+}
+
+/* The Envelope Container */
+.envelope-shell {
+  position: relative;
+  width: min(85vw, 360px);
+  height: min(108vw, 460px);
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.envelope-shell:hover {
+  transform: scale(1.015) rotateX(2deg);
+}
+
+.env-table-shadow {
+  position: absolute;
+  left: 5%;
+  top: 92%;
+  width: 90%;
+  height: 35px;
+  background: radial-gradient(46% 50% at 50% 50%, rgba(85,45,32,0.35), transparent 75%);
+  filter: blur(8px);
+  z-index: 1;
+}
+
+/* 1. Back Panel */
+.env-back-panel {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(166deg, #EFE3CB 0%, #E7D9BE 60%, #DBC9A8 100%);
+  box-shadow: 0 22px 44px -26px rgba(61,41,35,0.55);
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* 2. Card Preview Inside */
+.env-card-preview {
+  position: absolute;
+  left: 6%;
+  top: 5%;
+  width: 88%;
+  height: 90%;
+  background: linear-gradient(168deg, #FDF8EE 0%, #F8F1E3 52%, #F0E6D2 100%);
+  border: 1px solid rgba(184,148,82,0.4);
+  box-shadow: 0 16px 36px -15px rgba(85,32,42,0.4);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.env-card-preview.card-sliding {
+  transform: translateY(-55%) scale(1.04);
+  z-index: 8;
+  box-shadow: 0 28px 60px -20px rgba(85,32,42,0.5);
+}
+
+.preview-inner {
+  text-align: center;
+  padding: 16px;
+}
+
+.preview-lotus {
+  width: 44px;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+.preview-blessing {
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+
+.preview-names {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--burgundy);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.preview-date {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ink-muted);
+}
+
+/* 3. Front Panel */
+.env-front-panel {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(174deg, #F7EFDF 0%, #F1E5CE 55%, #E7D7B8 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 -2px 12px -6px rgba(61,41,35,0.35);
+  border-radius: 4px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 24px;
+}
+
+.env-front-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.env-front-rule {
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.env-front-names {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+/* 4. Top Flap with 3D Hinge */
+.env-flap-hinge {
+  position: absolute;
+  inset-x: 0;
+  top: 0;
+  height: 56%;
+  transform-origin: top;
+  transform-style: preserve-3d;
+  z-index: 6;
+  transition: transform 1.4s cubic-bezier(0.33, 0, 0.16, 1);
+}
+
+.env-flap-hinge.flap-open {
+  transform: rotateX(-172deg);
+  z-index: 2;
+}
+
+.env-flap-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.env-flap-outside {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(176deg, #FEFAF2 0%, #F7EFDF 40%, #EADDC3 78%, #DFCFAE 100%);
+  filter: drop-shadow(0 6px 9px rgba(61,41,35,0.22));
+}
+
+.flap-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.env-flap-inside {
+  transform: rotateX(180deg);
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  background: linear-gradient(8deg, #5E2129 0%, #6E2B34 55%, #7C333D 100%);
+}
+
+/* 5. Burgundy Wax Seal */
+.env-wax-seal {
+  position: absolute;
+  left: 50%;
+  top: calc(56% - 32px);
+  transform: translateX(-50%);
+  z-index: 7;
+  transition: transform 1.2s cubic-bezier(0.45, 0.02, 0.6, 1), opacity 0.8s ease;
+}
+
+.env-wax-seal.seal-breaking {
+  transform: translate(25px, 260px) rotate(48deg);
+  opacity: 0;
+}
+
+.wax-blob {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 46% 54% 43% 57% / 53% 45% 55% 47%;
+  background: radial-gradient(72% 66% at 36% 30%, #8E3B44 0%, #78313B 38%, #642430 70%, #4E1A24 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255,214,200,0.20),
+    inset 0 -5px 10px rgba(30,7,11,0.55),
+    0 7px 14px -6px rgba(52,14,20,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-seal-motif {
+  width: 44px;
+  height: 44px;
+}
+
+/* Tap to Open Prompt Button */
+.tap-open-btn {
+  margin-top: 30px;
+  padding: 10px 24px;
+  background: rgba(253, 248, 238, 0.85);
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(61,41,35,0.08);
+  animation: pulseButton 2.4s ease-in-out infinite;
+  transition: opacity 0.4s ease, transform 0.2s ease;
+}
+
+.tap-open-btn:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@keyframes pulseButton {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* --------------------------------------------------------------------------
+   Ambient & Main Card Layout
+   -------------------------------------------------------------------------- */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(237, 216, 178, 0.22) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.page-wrapper.card-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Invitation Card Container (Spacious 620px Width) */
+.invitation-card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  background-color: var(--paper);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow:
+    0 2px 6px rgba(91, 58, 46, 0.03),
+    0 15px 35px -5px rgba(91, 58, 46, 0.08),
+    0 35px 70px -15px rgba(112, 44, 53, 0.18),
+    0 0 0 1px rgba(184, 148, 82, 0.25);
+  padding: clamp(48px, 8vw, 68px) clamp(24px, 6vw, 48px) clamp(44px, 7vw, 60px);
+}
+
+.paper-grain-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+
+/* Triple Inset Borders */
+.card-border-outer {
+  position: absolute;
+  inset: 12px;
+  border-radius: calc(var(--radius-card) - 6px);
+  border: 1px solid rgba(184, 148, 82, 0.25);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-border-gold {
+  position: absolute;
+  inset: 18px;
+  border-radius: calc(var(--radius-card) - 9px);
+  border: 1.2px solid rgba(184, 148, 82, 0.55);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.card-border-soft {
+  position: absolute;
+  inset: 24px;
+  border-radius: calc(var(--radius-card) - 12px);
+  border: 1px dashed rgba(184, 148, 82, 0.25);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Corner Blush Accents */
+.organic-blush {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(235, 208, 193, 0.45) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.organic-blush--top-left {
+  top: -110px;
+  left: -110px;
+}
+
+.organic-blush--bottom-right {
+  bottom: -110px;
+  right: -110px;
+}
+
+.botanical-corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.botanical-corner--top-left {
+  top: 18px;
+  left: 18px;
+}
+
+.botanical-corner--bottom-right {
+  bottom: 18px;
+  right: 18px;
+  transform: rotate(180deg);
+}
+
+/* Card Content Flow */
+.card-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lotus Motif Header */
+.lotus-motif {
+  margin-bottom: 18px;
+}
+
+.lotus-svg {
+  width: 52px;
+  height: auto;
+  opacity: 0.8;
+}
+
+.blessing-intro {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+}
+
+/* Header Badge */
+.invite-header-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.badge-line {
+  height: 1px;
+  width: 36px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.invite-header-badge .badge-line:last-child {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.invite-header {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold-dark);
+  margin: 0;
+}
+
+/* Couple Names with Professional Line Spacing */
+.couple-names-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.couple-name {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 8.5vw, 62px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--burgundy);
+  margin: 0;
+}
+
+.name-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.connector-lotus {
+  width: 32px;
+  height: auto;
+  opacity: 0.75;
+}
+
+.connector-with {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--gold);
+}
+
+.family-invitation-sub {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  opacity: 0.75;
+  max-width: 440px;
+  margin-bottom: 30px;
+}
+
+/* Photo Frame */
+.photo-frame-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.photo-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--gold-gradient);
+  box-shadow:
+    0 14px 32px -6px rgba(112, 44, 53, 0.22),
+    0 0 0 4px var(--soft);
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+
+.photo-frame:hover {
+  transform: scale(1.02);
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
+/* Gold Divider */
+.gold-divider {
+  position: relative;
+  width: 140px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-diamond {
+  position: absolute;
+  font-size: 9px;
+  color: var(--gold);
+  background: var(--paper);
+  padding: 0 6px;
+}
+
+/* Event Capsule */
+.event-capsule {
+  background: linear-gradient(180deg, #FDF9F0 0%, #F8F1E3 100%);
+  border: 1px solid rgba(184, 148, 82, 0.35);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 4px 15px rgba(61, 41, 35, 0.04);
+}
+
+.capsule-subtag {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+
+.event-date {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+
+.capsule-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(184, 148, 82, 0.4);
+  margin: 8px auto;
+}
+
+.event-time {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.event-feast {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-style: italic;
+  color: #667052;
+}
+
+/* Live Countdown Timer (Roboto) */
+.countdown-section {
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 32px;
+}
+
+.countdown-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--gold-dark);
+  margin-bottom: 12px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.countdown-card {
+  background: #FDF9F0;
+  border: 1px solid rgba(184, 148, 82, 0.3);
+  border-radius: 12px;
+  padding: 12px 6px 10px;
+  box-shadow: 0 2px 6px rgba(61, 41, 35, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-val {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--burgundy);
+}
+
+.countdown-unit {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--gold-dark);
+  margin-top: 6px;
+}
+
+/* Venue Section */
+.venue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0 10px;
+}
+
+.venue-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+
+.venue-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.venue-location {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  max-width: 360px;
+}
+
+/* Action Buttons */
+.action-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: var(--radius-capsule);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--gold-gradient);
+  color: #3b231a;
+  border: 1px solid var(--gold);
+  box-shadow: 0 4px 14px rgba(184, 148, 82, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 148, 82, 0.35);
+}
+
+.btn-secondary {
+  background: #FDF9F0;
+  color: var(--ink);
+  border: 1px solid rgba(184, 148, 82, 0.35);
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--burgundy);
+  background: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(61, 41, 35, 0.08);
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Closing Line */
+.closing-message {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 420px;
+  margin-bottom: 16px;
+  padding: 0 6px;
+}
+
+.footer-blessing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-flourish {
+  font-size: 14px;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .invitation-card {
+    padding: 38px 18px 32px;
+    border-radius: 18px;
+  }
+
+  .photo-frame {
+    width: 185px;
+    height: 185px;
+  }
+
+  .couple-name {
+    font-size: 40px;
+  }
+
+  .event-date {
+    font-size: 22px;
+  }
+
+  .venue-name {
+    font-size: 22px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 270px;
+    padding: 11px 20px;
+  }
+}

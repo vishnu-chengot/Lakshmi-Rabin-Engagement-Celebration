@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f9ede6;
+  --paper: #fffdfa;
+  --rose: #8a4e3d;
+  --rose-dark: #643123;
+  --gold: #b8935a;
+  --gold-light: #edd8b2;
+  --gold-dark: #96703b;
+  --ink: #4f3328;
+  --ink-muted: #7d5b4e;
+  --soft: #ebd0c1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(235, 208, 193, 0.75) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(249, 237, 230, 0.4) 0%, rgba(244, 222, 210, 0.8) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Luxury paper card texture */
+.paper-card {
+  background-color: var(--paper);
+  position: relative;
+  box-shadow: 
+    0 4px 15px rgba(91, 58, 46, 0.04),
+    0 24px 60px -15px rgba(138, 78, 61, 0.15),
+    0 0 0 1px rgba(184, 147, 90, 0.22);
+}
+
+/* Delicate dual border styling */
+.paper-frame {
+  position: relative;
+}
+
+.paper-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1.2px solid var(--gold);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+.paper-frame::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(184, 147, 90, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Paper Grain Texture for Envelope & Stationery */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.5'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+
+.grain-soft {
+  opacity: 0.09;
+}
+
+/* Laid-paper horizontal lines */
+.laid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(61, 41, 35, 0.035) 0px,
+    rgba(61, 41, 35, 0.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.5;
+}
+
+/* Ambient swaying botanicals */
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-1.1deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1.1deg) translateY(-5px);
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(4px, -9px, 0);
+  }
+}
+
+.sway {
+  animation: sway 13s ease-in-out infinite;
+  transform-origin: 50% 92%;
+}
+
+.drift {
+  animation: drift 17s ease-in-out infinite;
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--soft);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
