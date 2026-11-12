@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { RoyalCurtain } from './components/curtain/RoyalCurtain';
+import { OpeningEnvelope } from './components/opening/OpeningEnvelope';
 import { HeroSection } from './components/HeroSection';
 import { CountdownSection } from './components/CountdownSection';
 import { MemoriesSection } from './components/MemoriesSection';
@@ -12,7 +12,7 @@ export const App: React.FC = () => {
   const [opened, setOpened] = useState(false);
   const still = useReducedMotion();
 
-  // Prevent background scrolling while curtain is closed
+  // Prevent background scrolling while envelope is active
   useEffect(() => {
     document.body.style.overflow = opened ? '' : 'hidden';
     return () => {
@@ -22,14 +22,14 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {/* Royal Velvet & Gold Curtain Opening Experience on Page Start */}
+      {/* 3D Envelope Opening Experience on Page Start */}
       <AnimatePresence>
         {!opened && (
           <motion.div
-            key="curtain"
-            exit={{ opacity: 0, transition: { duration: 0.9, ease: 'easeInOut' } }}
+            key="envelope"
+            exit={{ opacity: 0, transition: { duration: 0.8, ease: 'easeInOut' } }}
           >
-            <RoyalCurtain onOpened={() => setOpened(true)} />
+            <OpeningEnvelope onOpened={() => setOpened(true)} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -41,7 +41,7 @@ export const App: React.FC = () => {
         animate={{ opacity: opened ? 1 : 0 }}
         transition={{ duration: still ? 0 : 1.2, ease: [0.22, 0.61, 0.24, 1] }}
       >
-        {/* Unified, Continuous Luxury Invitation Canvas */}
+        {/* Unified, Continuous Luxury Invitation Canvas (Spacious max-w-2xl) */}
         <div className="w-full max-w-2xl bg-[#FDFBF7] relative shadow-2xl sm:rounded-3xl border-x-0 sm:border border-[#B89452]/25 overflow-hidden">
           
           {/* Continuous Inset Borders */}

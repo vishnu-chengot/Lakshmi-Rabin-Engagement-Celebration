@@ -21,72 +21,87 @@
 <body>
 
   <!-- ======================================================================
-       Royal Velvet & Gold Curtain Opening Experience (Starts on Page Load)
+       3D Royal Envelope Opening Experience (Starts on Page Load)
        ====================================================================== -->
-  <div id="curtainOverlay" class="curtain-overlay" aria-label="Interactive Grand Curtain">
-    
-    <!-- Left Curtain Panel -->
-    <div class="curtain-panel curtain-panel--left" id="curtainLeft">
-      <div class="curtain-pleats"></div>
-      <div class="curtain-shadow-edge"></div>
-      <div class="curtain-gold-trim"></div>
-    </div>
-
-    <!-- Right Curtain Panel -->
-    <div class="curtain-panel curtain-panel--right" id="curtainRight">
-      <div class="curtain-pleats"></div>
-      <div class="curtain-shadow-edge"></div>
-      <div class="curtain-gold-trim"></div>
-    </div>
-
-    <!-- Top Royal Valance (Pelmet Swag) -->
-    <div class="curtain-valance" id="curtainValance">
-      <div class="valance-pleats"></div>
-      <svg class="valance-swag-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0 Q300,100 600,30 Q900,100 1200,0 L1200,120 L0,120 Z" fill="rgba(0,0,0,0.4)" />
-      </svg>
-      <div class="valance-fringe">
-        <div class="fringe-row">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
+  <div id="envelopeOverlay" class="envelope-overlay" aria-label="Interactive Envelope">
+    <div class="envelope-scene">
+      
+      <!-- Table botanical accents -->
+      <div class="env-botanical env-botanical--left" aria-hidden="true">
+        <svg viewBox="0 0 108 160" fill="none"><g stroke="#667052" stroke-width="1" stroke-linecap="round"><path d="M14 156C22 118 34 76 58 44 72 25 86 14 100 8"/><path d="M30 116c-8-8-9-19-4-27 8 4 12 14 9 24"/><path d="M38 98c10-2 17-10 17-19-10-1-18 5-20 15"/><path d="M48 76c-9-6-12-16-9-25 8 5 12 15 11 24"/><path d="M58 58c11-1 19-8 20-17-10-2-19 3-22 13"/></g></svg>
       </div>
-    </div>
-
-    <!-- Side Gold Braided Tiebacks -->
-    <div class="curtain-tieback tieback--left" id="tiebackLeft">
-      <div class="tieback-cord"></div>
-      <div class="tieback-tassel"></div>
-    </div>
-    <div class="curtain-tieback tieback--right" id="tiebackRight">
-      <div class="tieback-cord"></div>
-      <div class="tieback-tassel"></div>
-    </div>
-
-    <!-- Center Royal Medallion & Unveil Button -->
-    <div class="curtain-center" id="curtainCenter">
-      <div class="emblem-halo"></div>
-      <div class="emblem-medallion" role="button" tabindex="0" id="drawCurtainsBtn" aria-label="Tap to draw curtains and view invitation">
-        <div class="emblem-inner">
-          <svg viewBox="0 0 120 72" fill="none" class="emblem-lotus">
-            <g stroke="#fae8c8" stroke-width="1.2" stroke-linecap="round">
-              <path d="M60 66C46 66 28 60 16 48c14-6 28-5 38 2" />
-              <path d="M60 66c14 0 32-6 44-18-14-6-28-5-38 2" />
-              <path d="M60 65c-5-7-6-17-2-25 3-6 3-6 2-9-1 3-1 3 2 9 4 8 3 18-2 25Z" />
-            </g>
-          </svg>
-          <span class="emblem-monogram">R &amp; L</span>
-          <span class="emblem-tag">ENGAGEMENT</span>
-          <span class="emblem-date">15 · 11 · 2026</span>
-        </div>
+      <div class="env-botanical env-botanical--right" aria-hidden="true">
+        <svg viewBox="0 0 108 160" fill="none"><g stroke="#667052" stroke-width="1" stroke-linecap="round"><path d="M14 156C22 118 34 76 58 44 72 25 86 14 100 8"/><path d="M30 116c-8-8-9-19-4-27 8 4 12 14 9 24"/><path d="M38 98c10-2 17-10 17-19-10-1-18 5-20 15"/><path d="M48 76c-9-6-12-16-9-25 8 5 12 15 11 24"/><path d="M58 58c11-1 19-8 20-17-10-2-19 3-22 13"/></g></svg>
       </div>
-      <button type="button" class="draw-curtains-badge" id="drawCurtainsBadge">
-        ✦ Tap to Draw Curtains ✦
+
+      <!-- The 3D Envelope Object -->
+      <div class="envelope-shell" id="envelopeShell" role="button" tabindex="0" aria-label="Tap to open invitation">
+        
+        <!-- Table Drop Shadow -->
+        <div class="env-table-shadow"></div>
+
+        <!-- 1. Back panel -->
+        <div class="env-back-panel"></div>
+
+        <!-- 2. Sliding Card Preview -->
+        <div class="env-card-preview" id="envCardPreview">
+          <div class="preview-inner">
+            <svg class="preview-lotus" viewBox="0 0 120 72" fill="none">
+              <g stroke="#B89452" stroke-width="1" stroke-linecap="round">
+                <path d="M60 66C46 66 28 60 16 48c14-6 28-5 38 2" />
+                <path d="M60 66c14 0 32-6 44-18-14-6-28-5-38 2" />
+                <path d="M60 65c-5-7-6-17-2-25 3-6 3-6 2-9-1 3-1 3 2 9 4 8 3 18-2 25Z" />
+              </g>
+            </svg>
+            <p class="preview-blessing">With the blessings of our families</p>
+            <h2 class="preview-names">Rabin &amp; Lakshmi</h2>
+            <p class="preview-date">15 · 11 · 2026</p>
+          </div>
+        </div>
+
+        <!-- 3. Front panel -->
+        <div class="env-front-panel">
+          <div class="env-front-crease"></div>
+          <div class="env-front-label">
+            <span class="env-front-rule"></span>
+            <p class="env-front-names">Rabin &amp; Lakshmi</p>
+            <span class="env-front-rule"></span>
+          </div>
+        </div>
+
+        <!-- 4. Top Flap with 3D hinge -->
+        <div class="env-flap-hinge" id="envFlap">
+          <div class="env-flap-face env-flap-outside">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="flap-lines">
+              <path d="M0 0 L50 100 L100 0" fill="none" stroke="rgba(112,72,38,0.4)" stroke-width="1" />
+              <path d="M1.2 0 L50 97.5 L98.8 0" fill="none" stroke="rgba(255,252,244,0.9)" stroke-width="1" />
+            </svg>
+          </div>
+          <div class="env-flap-face env-flap-inside"></div>
+        </div>
+
+        <!-- 5. Burgundy Wax Seal -->
+        <div class="env-wax-seal" id="envWaxSeal">
+          <div class="wax-blob">
+            <svg class="wax-seal-motif" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="33" stroke="#EBB9A6" stroke-width="1.2" opacity="0.6" />
+              <circle cx="50" cy="50" r="4" fill="#EBB9A6" />
+              <path d="M50 24 C45 35 45 42 50 50 C55 42 55 35 50 24 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M50 76 C45 65 45 58 50 50 C55 58 55 65 50 76 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M24 50 C35 45 42 45 50 50 C42 55 35 55 24 50 Z" fill="#EBB9A6" opacity="0.8" />
+              <path d="M76 50 C65 45 58 45 50 50 C58 55 65 55 76 50 Z" fill="#EBB9A6" opacity="0.8" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tap to Open Prompt -->
+      <button type="button" class="tap-open-btn" id="tapOpenBtn">
+        Tap to open invitation
       </button>
-    </div>
 
+    </div>
   </div>
 
   <div class="ambient-glow" aria-hidden="true"></div>
@@ -196,7 +211,7 @@
           <span class="divider-diamond">◆</span>
         </div>
 
-        <!-- Event Date & Timing Capsule (Updated to 10:30 AM) -->
+        <!-- Event Date & Timing Capsule -->
         <div class="event-capsule">
           <p class="capsule-subtag">SAVE THE DATE</p>
           <time class="event-date" datetime="2026-11-15">Sunday, 15 November 2026</time>
@@ -205,7 +220,7 @@
           <p class="event-feast">Followed by traditional celebratory feast</p>
         </div>
 
-        <!-- Live Countdown Timer (Targeting 10:30 AM) -->
+        <!-- Live Countdown Timer (Roboto) -->
         <div class="countdown-section" id="countdownSection">
           <p class="countdown-label">COUNTING DOWN THE MOMENTS</p>
           <div class="countdown-grid">
@@ -235,7 +250,7 @@
           <p class="venue-location">East Nadakkavu, Wayanad Road, Kozhikode, Kerala</p>
         </div>
 
-        <!-- Interactive Quick Action Buttons (Updated to 10:30 AM UTC = 05:00Z) -->
+        <!-- Interactive Quick Action Buttons -->
         <div class="action-buttons-group">
           <a
             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Engagement+Ceremony+%E2%80%94+Rabin+%26+Lakshmi&dates=20261115T050000Z/20261115T083000Z&details=With+the+blessings+of+our+families%2C+joyfully+invite+you+to+celebrate+the+engagement+ceremony+of+Rabin+R+%26+Lakshmi+C+P.&location=East+Avenue+Hotel%2C+East+Nadakkavu%2C+Wayanad+Road%2C+Kozhikode%2C+Kerala+673006"
@@ -278,53 +293,54 @@
     </main>
   </div>
 
-  <!-- Interactive Scripts (Curtain Opening + Live Countdown) -->
+  <!-- Interactive Scripts (Envelope Opening + Live Countdown) -->
   <script>
     (function () {
-      // 1. Curtain opening mechanics
-      var overlay = document.getElementById('curtainOverlay');
-      var leftPanel = document.getElementById('curtainLeft');
-      var rightPanel = document.getElementById('curtainRight');
-      var valance = document.getElementById('curtainValance');
-      var centerMedallion = document.getElementById('curtainCenter');
-      var tiebackLeft = document.getElementById('tiebackLeft');
-      var tiebackRight = document.getElementById('tiebackRight');
+      var overlay = document.getElementById('envelopeOverlay');
+      var shell = document.getElementById('envelopeShell');
+      var flap = document.getElementById('envFlap');
+      var seal = document.getElementById('envWaxSeal');
+      var card = document.getElementById('envCardPreview');
+      var tapBtn = document.getElementById('tapOpenBtn');
       var mainCard = document.getElementById('mainCardWrapper');
-      var triggerBtn = document.getElementById('drawCurtainsBtn');
-      var triggerBadge = document.getElementById('drawCurtainsBadge');
 
       var opened = false;
 
-      function openCurtains() {
+      function openEnvelope() {
         if (opened) return;
         opened = true;
 
-        // Step 1: Center Medallion lifts and blooms
-        centerMedallion.classList.add('center-fade-out');
+        if (tapBtn) tapBtn.style.opacity = '0';
 
-        // Step 2: Part left and right curtain panels with realistic gathers
-        leftPanel.classList.add('curtain-open-left');
-        rightPanel.classList.add('curtain-open-right');
-        valance.classList.add('valance-lift');
-        if (tiebackLeft) tiebackLeft.classList.add('tieback-hide');
-        if (tiebackRight) tiebackRight.classList.add('tieback-hide');
+        // Step 1: Seal cracks and falls away
+        seal.classList.add('seal-breaking');
 
-        // Step 3: Unveil card beneath
+        // Step 2: Flap rotates back
         setTimeout(function() {
-          overlay.classList.add('overlay-fade-out');
+          flap.classList.add('flap-open');
+        }, 350);
+
+        // Step 3: Card slides up
+        setTimeout(function() {
+          card.classList.add('card-sliding');
+        }, 900);
+
+        // Step 4: Full transition to invitation card
+        setTimeout(function() {
+          overlay.classList.add('overlay-depart');
           mainCard.classList.add('card-revealed');
           document.body.style.overflow = '';
-        }, 1800);
+        }, 2200);
 
         setTimeout(function() {
           overlay.style.display = 'none';
-        }, 2600);
+        }, 3100);
       }
 
-      if (triggerBtn) triggerBtn.addEventListener('click', openCurtains);
-      if (triggerBadge) triggerBadge.addEventListener('click', openCurtains);
+      if (shell) shell.addEventListener('click', openEnvelope);
+      if (tapBtn) tapBtn.addEventListener('click', openEnvelope);
 
-      // 2. Countdown mechanics (Target: 10:30 AM IST)
+      // Countdown timer
       var targetDate = new Date('2026-11-15T10:30:00+05:30').getTime();
       var daysEl = document.getElementById('daysVal');
       var hoursEl = document.getElementById('hoursVal');

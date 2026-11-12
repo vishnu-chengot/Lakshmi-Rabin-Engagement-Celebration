@@ -40,7 +40,7 @@ export const CountdownSection: React.FC = () => {
     );
     const location = encodeURIComponent("East Avenue Hotel, Wayanad Road, East Nadakkavu, Kozhikode, Kerala 673006");
     const startDate = "20261115T050000Z";
-    const endDate = "20261115T083000Z";
+    const endDate = "20261115T093000Z";
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
     window.open(url, '_blank');
   };
