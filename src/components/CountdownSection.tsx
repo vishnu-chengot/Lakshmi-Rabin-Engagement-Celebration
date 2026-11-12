@@ -9,7 +9,7 @@ interface TimeLeft {
 }
 
 export const CountdownSection: React.FC = () => {
-  const targetDate = new Date('2026-11-15T10:00:00+05:30').getTime();
+  const targetDate = new Date('2026-11-15T10:30:00+05:30').getTime();
 
   const calculateTimeLeft = (): TimeLeft => {
     const difference = targetDate - new Date().getTime();
@@ -39,8 +39,8 @@ export const CountdownSection: React.FC = () => {
       "With the blessings of our families, joyfully invite you to celebrate the engagement ceremony of Rabin R & Lakshmi C P at East Avenue Hotel, Kozhikode."
     );
     const location = encodeURIComponent("East Avenue Hotel, Wayanad Road, East Nadakkavu, Kozhikode, Kerala 673006");
-    const startDate = "20261115T043000Z";
-    const endDate = "20261115T093000Z";
+    const startDate = "20261115T050000Z";
+    const endDate = "20261115T083000Z";
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
     window.open(url, '_blank');
   };
